@@ -14,33 +14,33 @@
 
 #include <stdint.h>
 
-#ifndef OPTPARSE_API
-#  define OPTPARSE_API static
+#ifndef SET32_API
+#  define SET32_API static
 #endif
 
 /* Compute a power of two table size from a maximum number of elements */
-OPTPARSE_API
+SET32_API
 int set32_z(uint32_t max);
 
 /* 32-bit hash function */
-OPTPARSE_API
+SET32_API
 uint32_t set32_hash(uint32_t);
 
 /* Insert an integer into the set, which may already be present */
-OPTPARSE_API
+SET32_API
 void set32_insert(uint32_t *table, int z, uint32_t v);
 
 /* Remove an integer, which may not actually be present in the set */
-OPTPARSE_API
+SET32_API
 void set32_remove(uint32_t *table, int z, uint32_t v);
 
 /* Check set membership of an integer */
-OPTPARSE_API
+SET32_API
 int set32_contains(uint32_t *table, int z, uint32_t v);
 
 #ifdef SET32_IMPLEMENTATION
 
-OPTPARSE_API
+SET32_API
 int
 set32_z(uint32_t n)
 {
@@ -50,7 +50,7 @@ set32_z(uint32_t n)
     return z;
 }
 
-OPTPARSE_API
+SET32_API
 uint32_t
 set32_hash(uint32_t a)
 {
@@ -62,7 +62,7 @@ set32_hash(uint32_t a)
     return a;
 }
 
-OPTPARSE_API
+SET32_API
 void
 set32_insert(uint32_t *table, int z, uint32_t v)
 {
@@ -74,7 +74,7 @@ set32_insert(uint32_t *table, int z, uint32_t v)
         table[i] = v;
 }
 
-OPTPARSE_API
+SET32_API
 void
 set32_remove(uint32_t *table, int z, uint32_t v)
 {
@@ -92,7 +92,7 @@ set32_remove(uint32_t *table, int z, uint32_t v)
     }
 }
 
-OPTPARSE_API
+SET32_API
 int
 set32_contains(uint32_t *table, int z, uint32_t v)
 {
